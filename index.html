@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DSOX | MASLAB Team</title>
+  <style>
+    :root {
+      --bg: #0f172a;        /* slate-900 */
+      --card: #111827;      /* gray-900 */
+      --accent: #22d3ee;    /* cyan-400 */
+      --muted: #94a3b8;     /* slate-400 */
+      --text: #e5e7eb;      /* gray-200 */
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+      background: linear-gradient(180deg, #020617, var(--bg));
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    header {
+      padding: 4rem 1.5rem 3rem;
+      text-align: center;
+      border-bottom: 1px solid #1f2933;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.05em;
+    }
+
+    header p {
+      max-width: 700px;
+      margin: 0 auto;
+      color: var(--muted);
+      font-size: 1.1rem;
+    }
+
+    nav {
+      margin-top: 2rem;
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    section {
+      padding: 4rem 1.5rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    section h2 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      border-left: 4px solid var(--accent);
+      padding-left: 0.75rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: linear-gradient(180deg, #020617, var(--card));
+      border: 1px solid #1f2933;
+      border-radius: 14px;
+      padding: 1.5rem;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.35);
+    }
+
+    .card h3 {
+      margin-top: 0;
+      margin-bottom: 0.25rem;
+    }
+
+    .role {
+      color: var(--accent);
+      font-size: 0.9rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .muted {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .progress-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .progress-list li {
+      padding: 0.75rem 0;
+      border-bottom: 1px dashed #1f2933;
+    }
+
+    .progress-list li:last-child {
+      border-bottom: none;
+    }
+
+    .status {
+      display: inline-block;
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      margin-left: 0.5rem;
+    }
+
+    .done { background: rgba(34, 211, 238, 0.15); color: var(--accent); }
+    .wip { background: rgba(251, 191, 36, 0.15); color: #fbbf24; }
+    .todo { background: rgba(248, 113, 113, 0.15); color: #f87171; }
+
+    footer {
+      text-align: center;
+      padding: 2.5rem 1.5rem;
+      border-top: 1px solid #1f2933;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>DSOX</h1>
+    <p>
+      MASLAB autonomous robot — designed, built, and programmed by our team.
+      This page tracks our progress, team members, and the evolution of the bot.
+    </p>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#team">Team</a>
+      <a href="#bot">The Bot</a>
+      <a href="#progress">Progress</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section id="about">
+    <h2>About the Project</h2>
+    <div class="card">
+      <p class="muted">
+        <strong>DSOX</strong> is our MASLAB competition robot. Our goal is to build a
+        fully autonomous system capable of perception, planning, and control in a
+        dynamic environment. This page serves as our internal and external logbook.
+      </p>
+    </div>
+  </section>
+
+  <section id="team">
+    <h2>Team</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Name Here</h3>
+        <div class="role">Controls / Software</div>
+        <p class="muted">Path planning, state machines, and control logic.</p>
+      </div>
+      <div class="card">
+        <h3>Name Here</h3>
+        <div class="role">Perception</div>
+        <p class="muted">Computer vision, sensor fusion, and object detection.</p>
+      </div>
+      <div class="card">
+        <h3>Name Here</h3>
+        <div class="role">Mechanical</div>
+        <p class="muted">Chassis design, drivetrain, and mechanical integration.</p>
+      </div>
+      <div class="card">
+        <h3>Name Here</h3>
+        <div class="role">Electrical</div>
+        <p class="muted">Power distribution, wiring, and sensor integration.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="bot">
+    <h2>The Bot</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Hardware</h3>
+        <ul class="muted">
+          <li>Drivetrain: TBD</li>
+          <li>Sensors: Camera, IMU, encoders</li>
+          <li>Compute: SBC / Microcontroller</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Software</h3>
+        <ul class="muted">
+          <li>Language: Python / C++</li>
+          <li>Vision: OpenCV</li>
+          <li>Control: FSM + PID</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Strategy</h3>
+        <p class="muted">
+          Autonomous exploration, target detection, and efficient scoring while
+          avoiding obstacles and other robots.
+        </p>
+      </div>
+    </div>
+  </section>
+
+      <section id="progress">
+    <h2>Progress Timeline</h2>
+    <div class="card">
+      <ul class="progress-list">
+        <li>
+          <strong>Electrical Setup</strong> — Soldering, wiring motors and servos, power buttons, Raven board integration, and initial power distribution
+          <span class="status done">Done</span>
+        </li>
+        <li>
+          <strong>Compute Setup</strong> — Raspberry Pi setup, OS configuration, device communication, and deployment workflow
+          <span class="status done">Done</span>
+        </li>
+        <li>
+          <strong>Motor & Servo Control</strong> — DC motor drivers, servo control, and low-level actuation interfaces
+          <span class="status done">Done</span>
+        </li>
+        <li>
+          <strong>Sensing & State Estimation</strong> — IMU setup, sensor integration, and basic state estimation
+          <span class="status done">Done</span>
+        </li>
+        <li>
+          <strong>Control</strong> — PID tuning and motion profiling for stable, repeatable movement
+          <span class="status wip">In Progress</span>
+        </li>
+        <li>
+          <strong>Vision</strong> — Camera setup, image processing pipeline, calibration, and homography
+          <span class="status wip">In Progress</span>
+        </li>
+        <li>
+          <strong>Autonomy</strong> — Full integration of vision, control, and decision-making for autonomous operation
+          <span class="status todo">To Do</span>
+        </li>
+        <li>
+          <strong>Competition-Ready Autonomy</strong> — Reliable end-to-end autonomous operation, scoring, and recovery under competition conditions
+          <span class="status todo">To Do</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <div class="card">
+      <p class="muted">
+        For questions about DSOX or our MASLAB project, reach out to the team or
+        check our repository/documentation.
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 DSOX MASLAB Team
+  </footer>
+
+</body>
+</html>
