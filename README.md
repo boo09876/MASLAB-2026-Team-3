@@ -23,6 +23,8 @@ I also contributed to the integration and testing of parts of the computer-visio
 
 The motion stack was designed around closed-loop feedback, pose estimation, and progressively more advanced path-following methods.
 
+![MASLAB robot side profile](images/side_profile.PNG)
+
 Key components include:
 
 - `pid.py` — reusable PID controller logic
