@@ -1,44 +1,68 @@
 # MASLAB 2026 Team 3 — Autonomous Robot Software
 
-Collaborative software developed for **MIT MASLAB 2026** by a 6-person team. The robot was designed to autonomously navigate randomized courses, identify Pringles cans as scoring objects, and interact with scoring zones using onboard sensing and vision.
+Collaborative software developed for **MIT MASLAB 2026** by a 6-person team. The robot was designed to autonomously navigate randomized courses, identify Pringles cans as scoring objects, and interact with scoring zones using onboard sensing and computer vision.
+
+![MASLAB autonomous robot](images/robot_top_down.jpg)
 
 ## My Role
 
-I served as **Head Programmer** on the team. This was a shared codebase developed by several team members; my primary contributions were in **robot motion and autonomous navigation**, including PID-based control, encoder/IMU odometry, motion profiling, path-following experiments, and movement-system testing/debugging. I had smaller involvement in computer-vision integration and testing.
+I served as **Head Programmer** on the team. My primary contributions focused on **robot motion and autonomous navigation**, including PID-based control, encoder/IMU odometry, motion profiling, path-following experiments, and movement-system testing/debugging.
 
-I do **not** claim authorship of the entire repository. Files outside my primary contribution areas may have been written primarily by other team members.
+I also contributed to the integration and testing of parts of the computer-vision pipeline. This was a collaborative codebase, and files outside my primary contribution areas were developed by other team members.
 
 ## My Primary Contributions
 
 - Developed and tuned robot movement and heading-control logic using PID-based feedback
 - Implemented and debugged encoder/IMU odometry for robot pose estimation
-- Developed trapezoidal/triangular motion-profile logic for smoother acceleration and deceleration
+- Developed trapezoidal and triangular motion-profile logic for smoother acceleration and deceleration
 - Worked on quadratic Bézier path generation and pure-pursuit-style lookahead/path-following experiments
 - Integrated motion-control code with the team's autonomous behavior
 - Assisted with testing and integration of parts of the camera/OpenCV pipeline
 
-## Technical Highlights
+## Motion & Controls
 
-### Motion & Controls
+The motion stack was designed around closed-loop feedback, pose estimation, and progressively more advanced path-following methods.
 
-The repository includes:
+Key components include:
 
-- PID controller utilities (`pid.py`)
-- Differential-drive odometry and heading control (`robot.py`)
-- Motion-profile position generation (`motion_profile.py`)
-- Experimental pure-pursuit/path-following code (`purepursuit/`)
-- IMU integration (`imu.py`)
+- `pid.py` — reusable PID controller logic
+- `robot.py` — drivetrain movement, odometry, and heading control
+- `motion_profile.py` — trapezoidal/triangular motion-profile generation
+- `purepursuit/` — experimental Bézier and pure-pursuit-style path following
+- `imu.py` — BNO08X IMU integration
 
-### Perception & Localization
+The movement system combined encoder measurements with IMU heading to estimate robot position and orientation, then used that state estimate for autonomous movement and heading correction.
 
-The team codebase also includes:
+## Vision Testing
 
-- OpenCV-based can and scoring-zone detection
-- Camera calibration and HSV/color-threshold tooling
-- Homography-based pixel-to-real-world coordinate conversion
-- Camera/debug utilities for perception testing
+![Scoring-zone detection output](images/zone_detection.jpeg)
 
-My involvement in these perception components was smaller than my work on motion/control.
+The team used an OpenCV-based perception pipeline to identify scoring objects and scoring zones from a mounted camera.
+
+The perception code included:
+
+- HSV and color-threshold tuning
+- Contour-based object detection
+- Scoring-zone identification
+- Camera calibration
+- Homography-based coordinate conversion
+
+My involvement in these components was primarily in **integration and testing**, rather than primary development of the vision pipeline.
+
+## Perception & Localization
+
+![Camera calibration and homography testing](images/homography.jpeg)
+
+Camera detections were mapped from image-space coordinates into estimated real-world field coordinates using a calibrated homography. This allowed the autonomous system to reason about detected field objects in the robot's navigation coordinate system.
+
+Relevant files include:
+
+- `camera.py`
+- `camera_utils.py`
+- `camera_calibration.py`
+- `can_detector_api.py`
+- `detect_zones.py`
+- `get_rw_coord.py`
 
 ## Repository Structure
 
@@ -48,40 +72,13 @@ My involvement in these perception components was smaller than my work on motion
 ├── pid.py                    # PID controller utility
 ├── motion_profile.py         # Motion-profile position generation
 ├── imu.py                    # IMU interface
-├── purepursuit/              # Experimental Bézier/pure-pursuit path following
-├── state_machine.py          # Team autonomous behavior/state logic
+├── purepursuit/              # Experimental Bézier / pure-pursuit path following
+├── state_machine.py          # Autonomous behavior and state logic
 ├── camera.py                 # Camera integration
 ├── camera_utils.py           # Vision utilities
-├── can_detector_api.py       # Can detection interface
-├── detect_zones.py           # Zone detection
+├── camera_calibration.py     # Camera calibration tools
+├── can_detector_api.py       # Can-detection interface
+├── detect_zones.py           # Scoring-zone detection
 ├── get_rw_coord.py           # Homography / coordinate transforms
-├── jackstuff/                # Additional team-developed localization/control experiments
-└── debug_imgs/               # Example perception debug images
-```
-
-## Technologies
-
-- Python
-- OpenCV
-- NumPy
-- Raven robot-control library / Raven board
-- BNO08X IMU
-- Encoder-based odometry
-- PID control
-- Homography
-- Bézier curves / pure-pursuit-style path following
-
-## Notes on the Code
-
-This repository is a snapshot of a competition codebase developed under time constraints. It contains experimental files, alternate approaches, debug utilities, and partially integrated prototypes. Those artifacts are intentionally preserved because they reflect the team's engineering iteration during MASLAB.
-
-Some experimental path-following code was not necessarily part of the final competition behavior. The repository is presented as a record of the team's development process rather than as a polished standalone software package.
-
-## Results
-
-- **4th overall** in the 2026 MASLAB competition
-- Recipient of the **Wilkens Family Design Award**
-
-## Usage / Rights
-
-This repository is shared for **portfolio and code-review purposes**. No license is granted for reuse, modification, or redistribution. Because this was a collaborative team project, rights to individual portions of the code may also belong to their respective contributors.
+├── jackstuff/                # Additional team localization/control experiments
+└── debug_imgs/               # Perception debug outputs
