@@ -2,7 +2,7 @@
 
 Collaborative software developed for **MIT MASLAB 2026** by a 6-person team. The robot was designed to autonomously navigate randomized courses, identify Pringles cans as scoring objects, and interact with scoring zones using onboard sensing and computer vision.
 
-![MASLAB autonomous robot](images/robot_top_down.jpg)
+<img src="images/robot_top_down.jpg" alt="MASLAB autonomous robot" width="500">
 
 ## My Role
 
@@ -23,7 +23,7 @@ I also contributed to the integration and testing of parts of the computer-visio
 
 The motion stack was designed around closed-loop feedback, pose estimation, and progressively more advanced path-following methods.
 
-![MASLAB robot side profile](images/robot_side_profile.PNG)
+<img src="images/robot_side_profile.PNG" alt="MASLAB robot side profile" width="325">
 
 Key components include:
 
@@ -37,7 +37,7 @@ The movement system combined encoder measurements with IMU heading to estimate r
 
 ## Vision Testing
 
-![Scoring-zone detection output](images/zone_detection.jpeg)
+<img src="images/zone_detection.jpeg" alt="Scoring-zone detection output" width="600">
 
 The team used an OpenCV-based perception pipeline to identify scoring objects and scoring zones from a mounted camera.
 
@@ -53,7 +53,7 @@ My involvement in these components was primarily in **integration and testing**,
 
 ## Perception & Localization
 
-![Camera calibration and homography testing](images/homography.jpeg)
+<img src="images/homography.jpeg" alt="Camera calibration and homography testing" width="600">
 
 Camera detections were mapped from image-space coordinates into estimated real-world field coordinates using a calibrated homography. This allowed the autonomous system to reason about detected field objects in the robot's navigation coordinate system.
 
