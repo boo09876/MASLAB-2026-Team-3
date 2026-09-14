@@ -2,7 +2,7 @@
 
 Collaborative software developed for **MIT MASLAB 2026** by a 6-person team. The robot was designed to autonomously navigate randomized courses, identify Pringles cans as scoring objects, and interact with scoring zones using onboard sensing and computer vision.
 
-<img src="images/robot_top_down.jpg" alt="MASLAB autonomous robot" width="500">
+<img src="images/robot_top_down.jpg" alt="MASLAB autonomous robot" width="400">
 
 ## My Role
 
